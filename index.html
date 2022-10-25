@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <style>
+    body{color:palegoldenrod; background-color: #1f1e33;}
+</style>
+ <title>サイトタイトル</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.1, maximum-scale=10">
+ <script type="text/javascript">
+    window.onload = function () {
+        getValue();
+        var $formObject = document.getElementById( "form_test" );
+        for( var $i = 0; $i < $formObject.length; $i++ ) {
+            $formObject.elements[$i].onkeyup = function(){
+                getValue();
+            };
+            $formObject.elements[$i].onchange = function(){
+                getValue();
+            };
+        }
+        document.getElementById( "sampleOutputLength" ).innerHTML = $formObject.length;
+    }
+    function getValue() {
+        var $formObject = document.getElementById( "form_test" );
+        document.getElementById( "Output" ).innerHTML = $formObject.highscore1.value;
+    }</script>
+    <link rel="stylesheet" href="https://use.typekit.net/gny5vaa.css">
+ </head>
+ <body>
+ <!----- main ----->
+
+ <div id="sampleOutput">
+    <br />
+    本日のハイスコア<br><hr><br>
+    <font face="kettler-web"><font size="7"> <span id="Output"></span> </font> </font>
+<hr>
+ </div>
+
+ <br><br><br><br>
+ <form id="form_test">
+    <input type="number" id="highscore1" name="highscore1"
+    min="0" max="1000000">
+</form>
+
+ <!----- /main ----->
+ </body>
+</html>
